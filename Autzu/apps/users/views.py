@@ -78,13 +78,13 @@ class UploadImageView(View):
 
                 subprocess.call(['pwd'])
                 subprocess.call(["zip", "media/{0}_permit.zip".format(full_name),
-                                 'media/{0}_permit1.pdf'.format(full_name),
-                                 'media/{0}_permit2.pdf'.format(full_name),
-                                 'media/{0}_permit3.pdf'.format(full_name),
-                                 'media/{0}_permit4.pdf'.format(full_name)])
+                                 "media/{0}_permit1.pdf".format(full_name),
+                                 "media/{0}_permit2.pdf".format(full_name),
+                                 "media/{0}_permit3.pdf".format(full_name),
+                                 "media/{0}_permit4.pdf".format(full_name)])
 
                 for x in range(1, 5):
-                    subprocess.call(["rm", 'media/{0}_permit{1}.pdf'.format(full_name, x)])
+                    subprocess.call(["rm", "media/{0}_permit{1}.pdf".format(full_name, x)])
                 return HttpResponseRedirect("/media/{0}_permit.zip".format(full_name))
 
             # image_form.save(commit=True)
