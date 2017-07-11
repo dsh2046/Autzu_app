@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="{% static 'f7/css/framework7.ios.min.css' %}">
+    <link rel="stylesheet" href="{% static 'f7/css/framework7.ios.colors.min.css' %}">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="{% static 'f7/css/my-app.css' %}">
+
+    {#    Customize file input tag   #}
+    <link rel="stylesheet" href="{% static 'css/fileInput.css' %}">
+
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+{#    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">#}
+{##}
+{#    <link rel='stylesheet prefetch' href='https://drop-uploader.borisolhor.com/pe-icon-7-stroke/css/pe-icon-7-stroke.css'>#}
+{#    <link rel='stylesheet prefetch' href='https://drop-uploader.borisolhor.com/css/skeleton.css'>#}
+{#    <link rel='stylesheet prefetch' href='https://drop-uploader.borisolhor.com/css/normalize.css'>#}
+
+
+  </head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+      <div class="content-block">
+        <p>By Samuel</p>
+        <p>E-mail: dsh20462046@gmail.com</p>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+        <p>By Samuel</p>
+        <p>E-mail: dsh20462046@gmail.com</p>
+      </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <!-- We have home navbar without left link-->
+            <div class="center sliding">Autzu</div>
+            <div class="right">
+              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="index" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+              <div class="content-block-title">Choose an Image</div>
+              <div class="content-block">
+
+                <p style="display: none"><a href="#" class="open-preloader">Open Preloader</a></p>
+                <p style="display: none"><a href="#" class="close-preloader">Close Preloader</a></p>
+                <div class="content-block-inner">
+
+                   <form method="post" name="fileinfo" enctype="multipart/form-data">
+
+                       <input type="file" id="file" name="license_image" class="myfile" accept="image/*">
+                       <label for="file" style="width: 100%; text-align: center; margin-top: 10px"><i class="fa fa-plus" aria-hidden="true"></i>   <i class="fa fa-file-image-o fa-2x" aria-hidden="true"></i></label>
+
+                       <p style="text-align: center;"><img id="blah" src="#" alt="your image" style="display: none; width:80%"/></p>
+
+                       <p style="display: none" id="submit"><button type="submit"  class="button button-fill button-big color-green" style="margin: auto; width:70%">Submit</button></p>
+
+                       {% csrf_token %}
+                   </form>
+
+                </div>
+
+{#            <form method="post" enctype="multipart/form-data" name="fileinfo">#}
+{#                <div class="file-upload">#}
+{#                  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>#}
+{##}
+{#                  <div class="image-upload-wrap">#}
+{#                    <input class="file-upload-input" type='file' name="license_image" onchange="readURL(this);" accept="image/*" />#}
+{#                    <div class="drag-text">#}
+{#                      <h3>add Image</h3>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                  <div class="file-upload-content">#}
+{#                    <img class="file-upload-image" src="#" alt="your image" />#}
+{#                    <div class="image-title-wrap">#}
+{#                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button><br><br>#}
+{#                        <button type="submit" id='submit' class="file-upload-btn">Upload</button>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{#                {% csrf_token %}#}
+{#            </form>#}
+                </div>
+              </div>
+
+{#              <div class="content-block-title">What about simple navigation?</div>#}
+{#              <div class="list-block">#}
+{#                <ul>#}
+{#                  <li><a href="about.html" class="item-link">#}
+{#                      <div class="item-content">#}
+{#                        <div class="item-inner"> #}
+{#                          <div class="item-title">About</div>#}
+{#                        </div>#}
+{#                      </div></a></li>#}
+{#                  <li><a href="{% url 'f7service' %}" class="item-link">#}
+{#                      <div class="item-content"> #}
+{#                        <div class="item-inner">#}
+{#                          <div class="item-title">Services</div>#}
+{#                        </div>#}
+{#                      </div></a></li>#}
+{#                  <li><a href="form.html" class="item-link">#}
+{#                      <div class="item-content"> #}
+{#                        <div class="item-inner">#}
+{#                          <div class="item-title">Form</div>#}
+{#                        </div>#}
+{#                      </div></a></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#              <div class="content-block-title">Side panels</div>#}
+{#              <div class="content-block">#}
+{#                <div class="row">#}
+{#                  <div class="col-50"><a href="#" data-panel="left" class="button open-panel">Left Panel</a></div>#}
+{#                  <div class="col-50"><a href="#" data-panel="right" class="button open-panel">Right Panel</a></div>#}
+{#                </div>#}
+{#              </div>#}
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+{#        <div class="toolbar">#}
+{#          <div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>#}
+{#        </div>#}
+      </div>
+    </div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="{% static 'f7/js/framework7.min.js' %}"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="{% static 'f7/js/my-app.js' %}"></script>
+
+
+<script>
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#file").change(function(){
+        readURL(this);
+        $("#blah").css('display', '');
+        $("#submit").css('display', '');
+    });
+
+
+            $$('.open-preloader').on('click', function () {
+                    myApp.showPreloader();
+                });
+
+            $$('.close-preloader').on('click', function () {
+                    myApp.hidePreloader();
+                });
+
+$(function(){
+
+    var form = document.forms.namedItem("fileinfo");
+
+        form.addEventListener('submit', function(ev) {
+            if(!$('.myfile').val()){
+                alert('error')
+            }
+            else{
+                    $$(".open-preloader").trigger("click");
+                    $$(".open-preloader").trigger("click");
+                    oData = new FormData(form);
+
+                    var oReq = new XMLHttpRequest();
+                    oReq.open("POST", "{% url 'upload' %}", true);
+                    oReq.send(oData);
+                    oReq.onload = function(oEvent) {
+                    if (oReq.status == 200) {
+                        $$('.close-preloader').trigger('click');
+                        location.href = oReq.responseURL
+                        $$('.close-preloader').trigger('click');
+                    } else {
+                        $$('.close-preloader').trigger('click');
+                        $$('.close-preloader').trigger('click');
+                        alert('Error');
+
+                    }
+                  };
+
+
+
+            }
+            ev.preventDefault();
+        }, false);
+    })
+    </script>
+
+
+  </body>
+</html>

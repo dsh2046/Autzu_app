@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Startmin - Bootstrap Admin Theme</title>
+    <!-- jQuery -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="{% static 'js/metisMenu.min.js' %}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'js/startmin.js' %}"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'css/metisMenu.min.css' %}" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{% static 'css/timeline.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/startmin.css' %}" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'css/morris.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'upload_template/css/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'upload.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery-confirm.min.css' %}">
+    <script src="{% static 'js/jquery-confirm.min.js' %}"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+<![endif]-->
+</head>
+<body>
+<div id="loadingDiv"> </div>
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Autzu</a>
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Top Navigation: Left Menu -->
+{#        <ul class="nav navbar-nav navbar-left navbar-top-links">#}
+{#            <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>#}
+{#        </ul>#}
+
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+{#            <li class="dropdown navbar-inverse">#}
+{#                <a class="dropdown-toggle" data-toggle="dropdown" href="#">#}
+{#                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>#}
+{#                </a>#}
+{#                <ul class="dropdown-menu dropdown-alerts">#}
+{#                    <li>#}
+{#                        <a href="#">#}
+{#                            <div>#}
+{#                                <i class="fa fa-comment fa-fw"></i> New Comment#}
+{#                                <span class="pull-right text-muted small">4 minutes ago</span>#}
+{#                            </div>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                    <li class="divider"></li>#}
+{#                    <li>#}
+{#                        <a class="text-center" href="#">#}
+{#                            <strong>See All Alerts</strong>#}
+{#                            <i class="fa fa-angle-right"></i>#}
+{#                        </a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </li>#}
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i>
+                    {% if request.user.is_authenticated %}{{ username }}
+                    {% else %}
+                    pleaseLogin
+                    {% endif %}<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'login' %}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="active"><i class="fa fa-dashboard fa-fw"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third Level Item</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"></h1>
+                </div>
+
+            </div>
+            <!-- ... Your content goes here ... -->
+
+{#            <form enctype="multipart/form-data" autocomplete="off" method="post" action="{% url 'upload' %}">#}
+{#                <input type="file" name="license_image" />#}
+{#                <input type="submit" value="submit"/>#}
+{#                {% csrf_token %}#}
+{#            </form>#}
+
+        <p id="f1_upload_process"><img src="{% static 'loader.gif' %}" /></p>
+        <p id="result"></p>
+
+            <form method="post" enctype="multipart/form-data" name="fileinfo">
+                <div class="file-upload">
+                  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+                  <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' name="license_image" onchange="readURL(this);" accept="image/*" />
+                    <div class="drag-text">
+                      <h3>add Image</h3>
+                    </div>
+                  </div>
+                  <div class="file-upload-content">
+                    <img class="file-upload-image" src="#" alt="your image" />
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button><br><br>
+                        <button type="submit" id='submit' class="file-upload-btn">Upload</button>
+                    </div>
+                  </div>
+                </div>
+                {% csrf_token %}
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'upload_template/js/index.js' %}"></script>
+
+<script>
+$(function(){
+    var form = document.forms.namedItem("fileinfo");
+
+        form.addEventListener('submit', function(ev) {
+            document.getElementById('f1_upload_process').style.visibility = 'visible';
+
+            oData = new FormData(form);
+
+            var oReq = new XMLHttpRequest();
+            oReq.open("POST", "{% url 'upload' %}", true);
+            oReq.send(oData);
+            oReq.onload = function(oEvent) {
+            if (oReq.status == 200) {
+                alert('Press OK to start download')
+                location.href = oReq.responseURL
+                document.getElementById('f1_upload_process').style.visibility = 'hidden';
+            } else {
+                document.getElementById('f1_upload_process').style.visibility = 'hidden';
+            }
+          };
+
+
+          ev.preventDefault();
+        }, false);
+
+
+
+    function startUpload(){
+        document.getElementById('f1_upload_process').style.visibility = 'visible';
+        return true;
+    }
+
+    function stopUpload(success){
+          var result = '';
+          if (success == 1){
+             document.getElementById('result').innerHTML =
+               '<span class="msg">The file was uploaded successfully!<\/span><br/><br/>';
+          }
+          else {
+             document.getElementById('result').innerHTML =
+               '<span class="emsg">There was an error during file upload!<\/span><br/><br/>';
+          }
+          document.getElementById('f1_upload_process').style.visibility = 'hidden';
+          return true;
+    }
+
+{#    $(function(){#}
+{#        $('#submit').click(function(){#}
+{#                    $.ajax({#}
+{#                        cache: false,#}
+{#                        type: "POST",#}
+{#                        url:"{% url 'org:add_fav' %}",#}
+{#                        data:{'fav_id':fav_id, 'fav_type':fav_type},#}
+{#                        async: true,#}
+{#                        beforeSend:function(xhr, settings){#}
+{#                            xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");#}
+{#                        },#}
+{#                        success: function(data) {#}
+{#                            data=eval('('+data+')')#}
+{#                            if(data.status == 'fail'){#}
+{#                                if(data.msg == 'NotLogin'){#}
+{##}
+{#                                    location.href="{% url 'login' %}";#}
+{#                                }else{#}
+{#                                    alert(data.msg)#}
+{#                                }#}
+{##}
+{#                            }else if(data.status == 'success'){#}
+{#                                current_elem.text(data.msg)#}
+{#                            }#}
+{#                        }#}
+{#                    });#}
+{#        })#}
+{#    })#}
+{##}
+{##}
+    })
+</script>
+</body>
+</html>
